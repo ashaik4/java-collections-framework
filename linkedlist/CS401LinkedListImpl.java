@@ -74,6 +74,7 @@ public class CS401LinkedListImpl<E> implements CS401CollectionInterface<E>
       {
           head = tail = ne;
           num_elements++;
+         System.out.println("Added element"+ne.element.toString());
           return true;
       }
 
@@ -84,7 +85,10 @@ public class CS401LinkedListImpl<E> implements CS401CollectionInterface<E>
       else if (where == Where.FRONT)  {
           /**
            * Add code here. */
+         ne.next = head;
+         head = ne;
       }
+      System.out.println("Added element"+ne.element.toString());
       num_elements++;
       return true;
    }

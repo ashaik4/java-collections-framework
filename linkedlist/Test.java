@@ -1,0 +1,12 @@
+/**
+ * Created by Arshad on 8/7/2016.
+ */
+public class Test {
+    public static void main(String[] args) {
+        CS401LinkedListImpl<Chores> ll = new CS401LinkedListImpl<>();
+        ll.add(new Chores("Do Laundry",10));
+        ll.add(new Chores("Take out the trash",20));
+        ll.add(new Chores("Press your clothes",30));
+        System.out.println(ll.num_elements);
+    }
+}
