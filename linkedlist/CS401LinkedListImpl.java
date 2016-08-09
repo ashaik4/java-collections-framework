@@ -103,6 +103,21 @@ public class CS401LinkedListImpl<E> implements CS401CollectionInterface<E>
 
       /**
        * Add code here. */
+      LinkEntry<E> current = new LinkEntry<E>();
+      LinkEntry<E> ne = new LinkEntry<E>();
+
+      int i = 0;
+      current = head;
+      while(current!=null && i< index){
+         current = current.next;
+         i++;
+      }
+      ne.element = e;
+      ne.next = current.next;
+      current.next = ne;
+      System.out.println("The element "+ne.element+" was added at the index "+ index);
+
+
 
       return true;
    }
