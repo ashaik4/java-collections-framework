@@ -1,3 +1,5 @@
+import sun.awt.image.ImageWatched;
+
 public class CS401LinkedListImpl<E> implements CS401CollectionInterface<E>
 {
    protected LinkEntry<E> head;
@@ -42,7 +44,22 @@ public class CS401LinkedListImpl<E> implements CS401CollectionInterface<E>
    {
       /**
        * Add code here. */
-      return null;
+
+      /**
+       * The following code shows 3 cases of deleting an element from a linked list.
+       * 1. removing an element from the beginning of a linked list
+       * 2. removing an element at the end of the linked list.
+       * 3. removing an element from the middle of the linked list.
+       */
+      LinkEntry<E> current = new LinkEntry<E>();
+
+      int startIndex = 0;
+      if (i == 0){// removing an element from the beginning of the linked list.
+         current.element = head.element;
+         head = head.next;
+         current.next = null;
+      }
+      return current.element;
    }
 
    /**
@@ -105,17 +122,16 @@ public class CS401LinkedListImpl<E> implements CS401CollectionInterface<E>
        * Add code here. */
       LinkEntry<E> current = new LinkEntry<E>();
       LinkEntry<E> ne = new LinkEntry<E>();
-
       int i = 0;
       current = head;
-      while(current!=null && i< index){
+      while(current!=null && i< index){// traversing the linkedlist to get the pointer current to appropriate index and then use it to insert an element in the linkedlist.
          current = current.next;
          i++;
       }
       ne.element = e;
       ne.next = current.next;
       current.next = ne;
-      System.out.println("The element "+ne.element+" was added at the index "+ index);
+      System.out.println("The element "+ne.element+" was added at the index "+ index+ " between index "+(index-1)+" and "+(index+1));
 
 
 

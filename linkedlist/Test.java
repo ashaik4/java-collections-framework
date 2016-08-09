@@ -9,5 +9,6 @@ public class Test {
         ll.add(new Chores("Press your clothes",30));
         ll.add(Where.MIDDLE,1,new Chores("Prepare your breakfast",40));
         System.out.println(ll.num_elements);
+        System.out.println("removed element "+ ll.remove(0).toString());
     }
 }
