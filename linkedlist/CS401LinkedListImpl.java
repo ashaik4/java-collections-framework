@@ -52,14 +52,29 @@ public class CS401LinkedListImpl<E> implements CS401CollectionInterface<E>
        * 3. removing an element from the middle of the linked list.
        */
       LinkEntry<E> current = new LinkEntry<E>();
+      LinkEntry<E> ne = new LinkEntry<>();
+      LinkEntry<E> prev = new LinkEntry<>();
 
       int startIndex = 0;
-      if (i == 0){// removing an element from the beginning of the linked list.
-         current.element = head.element;
+      current.element = head.element;
+      current = head;
+      if (i == startIndex){// removing an element from the beginning of the linked list.
+         ne = head;
          head = head.next;
          current.next = null;
       }
-      return current.element;
+         while(current.next!=null){ // removing element from the end of linked list.
+            prev = current;
+            current = current.next;
+            startIndex++;
+            if (startIndex == i)
+               break;
+         }
+      System.out.println("start index "+startIndex);
+         ne.element = current.element;
+         prev = tail;
+
+      return ne.element;
    }
 
    /**
