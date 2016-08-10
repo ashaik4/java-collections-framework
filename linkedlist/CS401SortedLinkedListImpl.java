@@ -14,6 +14,42 @@ public class CS401SortedLinkedListImpl<E> extends CS401LinkedListImpl<E>
    {
       /**
        * Add code here. */
+      LinkEntry<E> ne = new LinkEntry<>();
+      ne.element = e;
+      if(head ==null && tail == null){
+         head = tail = ne;
+      }else{
+
+         LinkEntry<E> prev;
+         prev = null;
+         LinkEntry<E> current;
+         int i = 0;
+         for (current = head; current!=null; current = current.next){
+            int comp = ((Comparable) e).compareTo(current.element);
+            if(comp< 0){
+               break;
+            }
+            prev = current;
+            i++;
+         }
+         if(prev == null){
+            ne.next = head;
+            head = ne;
+         }
+         else if(current == null){
+            tail.next = ne;
+            tail = ne;
+         }
+         else{
+            prev.next = ne;
+            ne.next = current;
+//          ne.next = prev.next;
+//          prev.next = ne;
+
+            System.out.println(i);
+         }
+      }
+
       return true;
    }
 
@@ -22,8 +58,18 @@ public class CS401SortedLinkedListImpl<E> extends CS401LinkedListImpl<E>
     */
    public void reverse_print()  {
       /**
-       * Add code here 
+       * Add code here
+       *
        */
+      p_r(head);
+
+
+   }
+   public void p_r(LinkEntry<E> h){
+      if(h!=null) {
+         p_r(h.next);
+         System.out.println(h.element);
+      }
    }
 
 } /* CS401SortedLinkedListImpl<E> */

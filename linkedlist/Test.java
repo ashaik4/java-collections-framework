@@ -15,9 +15,19 @@ public class Test {
         Chores newChore = new Chores("Take out the trash",20);
         System.out.println("Does the linked list contains?"+ll.contains(newChore));
 
-
         ll.p(h,How.REVERSE);
         System.out.println("*************************************");
         ll.p(h,How.STRAIGHT);
+
+        CS401SortedLinkedListImpl<Chores> sortedList = new CS401SortedLinkedListImpl<>();
+        Chores testChore = new Chores("Exercise", 15);
+        Chores hh = new Chores("chore 1",10);
+        sortedList.add(hh);
+        sortedList.add(new Chores("Chore 2",20));
+        sortedList.add(new Chores("chore 3",30));
+        sortedList.add(testChore);
+        System.out.println(sortedList.contains(testChore));
+        sortedList.reverse_print();
+
     }
 }
