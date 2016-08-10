@@ -67,10 +67,10 @@ public class CS401LinkedListImpl<E> implements CS401CollectionInterface<E>
             prev = current;
             current = current.next;
             startIndex++;
-            if (startIndex == i)
+            if (startIndex == i)// if the loop reaches the given index, then it will
                break;
          }
-      System.out.println("start index "+startIndex);
+      //System.out.println("start index "+startIndex);
          ne.element = current.element;
          prev = tail;
 
@@ -84,7 +84,17 @@ public class CS401LinkedListImpl<E> implements CS401CollectionInterface<E>
    public boolean contains(E e)
    {
       /**
-       * Add code here. */ 
+       * Add code here. */
+      LinkEntry<E> ne = new LinkEntry<>();
+      LinkEntry<E> current = new LinkEntry<>();
+      current = head;
+      while(current.next !=null){
+         ne.element = current.element;
+         current = current.next;
+         if (ne.element.equals(e))
+            break;
+
+      }
       return true;
    }
 
@@ -151,6 +161,28 @@ public class CS401LinkedListImpl<E> implements CS401CollectionInterface<E>
 
 
       return true;
+   }
+
+  public void p(Chores h, String s){
+     if(s.contains("reverse")) {
+        p_r(head);
+     }
+     if(s.contains("straight")){
+        p_s(head);
+     }
+  }
+   private void p_r(LinkEntry<E> h){
+      if (h!=null){
+         p_r(h.next);// printing the list in reverse order
+         System.out.println(h.element.toString());
+         //p_r(h.next);// printing the list in straight order
+      }
+   }
+   private void p_s(LinkEntry<E> h){
+      if(h!=null){
+         System.out.println(h.element.toString());
+         p_s(h.next);
+      }
    }
 
    /**
