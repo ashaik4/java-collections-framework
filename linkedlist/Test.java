@@ -16,8 +16,8 @@ public class Test {
         System.out.println("Does the linked list contains?"+ll.contains(newChore));
 
 
-        ll.p(h,"reverse");
+        ll.p(h,How.REVERSE);
         System.out.println("*************************************");
-        ll.p(h,"straight");
+        ll.p(h,How.STRAIGHT);
     }
 }

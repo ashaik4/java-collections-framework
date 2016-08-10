@@ -163,11 +163,11 @@ public class CS401LinkedListImpl<E> implements CS401CollectionInterface<E>
       return true;
    }
 
-  public void p(Chores h, String s){
-     if(s.contains("reverse")) {
+  public void p(Chores h, How how){
+     if(how == How.REVERSE ) {
         p_r(head);
      }
-     if(s.contains("straight")){
+     if(how == How.STRAIGHT){
         p_s(head);
      }
   }
