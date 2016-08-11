@@ -62,8 +62,9 @@ public class CS401SortedLinkedListImpl<E> extends CS401LinkedListImpl<E>
        *
        */
       p_r(head);
-
-
+   }
+   public void straight_print(){
+      p_s(head);
    }
    public void p_r(LinkEntry<E> h){
       if(h!=null) {
@@ -71,6 +72,13 @@ public class CS401SortedLinkedListImpl<E> extends CS401LinkedListImpl<E>
          System.out.println(h.element);
       }
    }
+   public void p_s(LinkEntry<E> h){
+      if(h!=null){
+         System.out.println(h.element);
+         p_s(h.next);
+      }
+   }
+
 
 } /* CS401SortedLinkedListImpl<E> */
 

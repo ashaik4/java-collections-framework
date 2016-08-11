@@ -191,13 +191,19 @@ public class CS401LinkedListImpl<E> implements CS401CollectionInterface<E>
     * Returns a Java String object that represents the serialization of
     * the collection class. */
    public String toString()  {
-
-      StringBuilder result = new StringBuilder();
- 
       /**
        * Add code here. 
        * Traverse the linked list and serialize each object.  Add the
        * serialized form to result. */
+      StringBuilder result = new StringBuilder();
+   LinkEntry<E> current;
+   current = head;
+      while(current!=null)
+
+   {
+      result.append(current.element);
+      current = current.next;
+   }
 
       return result.toString();
    }

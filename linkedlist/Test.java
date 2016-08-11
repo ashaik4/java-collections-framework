@@ -28,6 +28,9 @@ public class Test {
         sortedList.add(testChore);
         System.out.println(sortedList.contains(testChore));
         sortedList.reverse_print();
+        sortedList.straight_print();
+
+        System.out.println(ll);
 
     }
 }
