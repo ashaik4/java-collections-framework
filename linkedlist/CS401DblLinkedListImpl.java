@@ -29,7 +29,8 @@ public class CS401DblLinkedListImpl<E> extends CS401LinkedListImpl<E>
     */
    public boolean add(E e)
    {
-      /** Add code here **/             
+      /** Add code here **/
+
       return true;
    }
 
