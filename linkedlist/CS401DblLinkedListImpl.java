@@ -118,8 +118,29 @@ public class CS401DblLinkedListImpl<E> extends CS401LinkedListImpl<E>
        * CS401LinkedListImpl::add(Where where, int index, E e) except 
        * account for the previous and next references in the doubly 
        * linked list. */
+      if(where == Where.MIDDLE){
+      LinkEntry<E> current_element = new LinkEntry<>();
+      LinkEntry<E> next_element = new LinkEntry<>();
+      LinkEntry<E> ne = new LinkEntry<>();
+      ne.element = e;
+      current_element = head;
+      int i = 0;
+      while(i < index ){
+         current_element = head.next;
+         next_element = current_element.next;
+         i++;
+      }
+
+      ne.previous = current_element;
+      current_element.next = ne;
+      ne.next = next_element;
+
+      next_element.previous = ne;
+      num_elements++;
 
       return true;
+      }
+      return false;
    }
 
    /**
