@@ -70,6 +70,11 @@ public class CS401DblLinkedListImpl<E> extends CS401LinkedListImpl<E>
 
       LinkEntry<E> ne = new LinkEntry<E>();
       ne.element = e;
+      /**
+       * Add code here.
+       * Hint: follow the same logic as
+       * CS401LinkedListImpl::add(Where where, E e) except account for
+       * the previous and next references in the doubly linked list. */
 
       if (head == null && tail == null) {
         head = ne;
@@ -93,11 +98,8 @@ public class CS401DblLinkedListImpl<E> extends CS401LinkedListImpl<E>
         // System.out.println(tail.element);
 
       }
-      /**
-       * Add code here.
-       * Hint: follow the same logic as 
-       * CS401LinkedListImpl::add(Where where, E e) except account for 
-       * the previous and next references in the doubly linked list. */
+      num_elements++;
+
 
       return true;
    }
