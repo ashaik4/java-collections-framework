@@ -30,7 +30,7 @@ public class CS401DblLinkedListImpl<E> extends CS401LinkedListImpl<E>
    public boolean add(E e)
    {
       /** Add code here **/
-
+    add(Where.BACK,e);
       return true;
    }
 
@@ -71,6 +71,28 @@ public class CS401DblLinkedListImpl<E> extends CS401LinkedListImpl<E>
       LinkEntry<E> ne = new LinkEntry<E>();
       ne.element = e;
 
+      if (head == null && tail == null) {
+        head = ne;
+         tail = head;
+         tail.next = null;
+         head.previous = null;
+        // System.out.println(head.element);
+      }
+      else if (where == Where.FRONT){
+         ne.next = head;
+         head.previous = ne;
+         head = ne;
+         head.previous = null;
+        // System.out.println(head.element);
+      }
+      else if(where == Where.BACK){
+         tail.next = ne;
+         ne.previous = tail;
+         tail = ne;
+         tail.next = null;
+        // System.out.println(tail.element);
+
+      }
       /**
        * Add code here.
        * Hint: follow the same logic as 

@@ -32,5 +32,12 @@ public class Test {
 
         System.out.println(ll);
 
+        // Test code for doubly linked list
+        CS401DblLinkedListImpl<Chores> doubly_linked_list = new CS401DblLinkedListImpl<>();
+        doubly_linked_list.add(new Chores("This is first element in doubly linked list",1));
+        doubly_linked_list.add(Where.BACK,new Chores("Adding an element at the back of the linked list",2));
+        doubly_linked_list.add(Where.FRONT,new Chores("Adding element at the front of the linked list",3));
+
+
     }
 }
