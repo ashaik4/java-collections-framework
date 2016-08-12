@@ -43,7 +43,28 @@ public class CS401DblLinkedListImpl<E> extends CS401LinkedListImpl<E>
    {
       /**
        * Add code here. */
-      return null;
+      LinkEntry<E> ne = new LinkEntry<>();
+      LinkEntry<E> previous_element = new LinkEntry<>();
+      LinkEntry<E> current_element = new LinkEntry<>();
+      LinkEntry<E> next_element = new LinkEntry<>();
+      int index = 0;
+      previous_element = head;
+      while (index < i && previous_element.next!=null){
+         previous_element = previous_element.next;
+         ///current_element = previous_element.next;
+         index++;
+      }
+      //System.out.println(i+" element :"+previous_element.element);
+      current_element = previous_element.next;
+      //System.out.println(current_element.element);
+      ne.element = current_element.element;
+      next_element = current_element.next;
+      previous_element.next = next_element;
+      next_element.previous = previous_element;
+      current_element.previous = null;
+      current_element.next = null;
+      System.out.println(current_element.element);
+      return ne.element;
    }
 
    /**
@@ -54,6 +75,18 @@ public class CS401DblLinkedListImpl<E> extends CS401LinkedListImpl<E>
    {
       /**
        * Add code here. */
+      boolean isContains = false;
+      LinkEntry<E> current_element = new LinkEntry<>();
+      current_element = head;
+      while(current_element.next != null){
+         if (current_element.element.equals(e)){
+            isContains = true;
+            break;
+         }
+         else{
+            isContains = false;
+         }
+      }
       return true;
    }
 
@@ -119,23 +152,23 @@ public class CS401DblLinkedListImpl<E> extends CS401LinkedListImpl<E>
        * account for the previous and next references in the doubly 
        * linked list. */
       if(where == Where.MIDDLE){
+
       LinkEntry<E> current_element = new LinkEntry<>();
       LinkEntry<E> next_element = new LinkEntry<>();
       LinkEntry<E> ne = new LinkEntry<>();
       ne.element = e;
       current_element = head;
       int i = 0;
-      while(i < index ){
-         current_element = head.next;
-         next_element = current_element.next;
+      while(i < index && current_element.next!=null){
+         current_element = current_element.next;
+         //next_element = current_element.next;
          i++;
       }
-
-      ne.previous = current_element;
-      current_element.next = ne;
-      ne.next = next_element;
-
-      next_element.previous = ne;
+      next_element = current_element.next;
+         ne.previous = current_element;
+         current_element.next = ne;
+         next_element.previous = ne;
+         ne.next = next_element;
       num_elements++;
 
       return true;
@@ -149,6 +182,12 @@ public class CS401DblLinkedListImpl<E> extends CS401LinkedListImpl<E>
    public void print_from_beginning()
    {
       /** Add code here **/
+      LinkEntry<E> current_element = new LinkEntry<>();
+      current_element = head;
+      while(current_element!= null){
+         System.out.println(current_element.element);
+         current_element = current_element.next;
+      }
       return;
    }
 
@@ -158,6 +197,12 @@ public class CS401DblLinkedListImpl<E> extends CS401LinkedListImpl<E>
    public void print_from_end()
    {
       /** Add code here **/
+      LinkEntry<E> current_element = tail;
+
+      while(current_element!=null){
+         System.out.println(current_element.element);
+         current_element = current_element.previous;
+      }
       return;
    }
 

@@ -38,8 +38,11 @@ public class Test {
         doubly_linked_list.add(Where.BACK,new Chores("Adding an element at the back of the linked list",2));
         doubly_linked_list.add(Where.FRONT,new Chores("Adding element at the front of the linked list",3));
         doubly_linked_list.add(Where.MIDDLE,1,new Chores("Adding element in the middle",4));
+       // doubly_linked_list.remove(1);
 
-
+        doubly_linked_list.print_from_beginning();
+        System.out.println("\n\n\n");
+        doubly_linked_list.print_from_end();
 
     }
 }
