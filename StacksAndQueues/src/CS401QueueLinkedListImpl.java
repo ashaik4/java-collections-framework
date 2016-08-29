@@ -1,3 +1,5 @@
+import sun.awt.image.ImageWatched;
+
 public class CS401QueueLinkedListImpl<E> implements CS401QueueInterface<E>  {
    private LinkEntry<E> head;
    private LinkEntry<E> tail;
@@ -11,24 +13,27 @@ public class CS401QueueLinkedListImpl<E> implements CS401QueueInterface<E>  {
    public E remove()  {
       
       /*** Add code ***/
+      LinkEntry<E> ne = new LinkEntry<>();
+      return ne.element;
 
    }
    public E peek()  {
 
       /*** Add code ***/
-
+      LinkEntry<E> ne = new LinkEntry<>();
+      return ne.element;
    }
 
    public boolean is_empty()  {
 
       /*** Add code ***/
-
+   return true;
    }
 
    public boolean is_full()  {
 
       /*** Add code ***/
-
+return true;
    }
 
    /* ------------------------------------------------------------------- */

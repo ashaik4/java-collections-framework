@@ -26,11 +26,13 @@ public class CS401StackArrayImpl<E> implements CS401StackInterface<E>
    public E pop()
    {
       /** Add code here **/
+      return elements[0];
    }
 
    public int size()
    {
       /** Add code here **/
+   return 0;
    }
 
 } /* CS401StackArrayImpl<E> */

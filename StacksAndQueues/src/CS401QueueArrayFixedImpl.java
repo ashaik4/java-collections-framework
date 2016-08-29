@@ -20,21 +20,24 @@ public class CS401QueueArrayFixedImpl<E> implements CS401QueueInterface<E>  {
    public E remove()  {
       
       /*** Add code ***/
+      return data[0];
    }
 
    public E peek()  {
 
       /*** Add code ***/
+      return data[0];
    }
 
    public boolean is_empty()  {
 
       /*** Add code ***/
+   return true;
    }
 
    public boolean is_full()  {
 
       /*** Add code ***/
-
+   return true;
    }
 }

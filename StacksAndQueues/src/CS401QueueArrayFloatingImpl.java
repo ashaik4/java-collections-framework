@@ -15,29 +15,30 @@ public class CS401QueueArrayFloatingImpl<E> implements CS401QueueInterface<E>  {
    public void add(E element) {
 
       /*** Add code ***/
+      return;
    }
 
    public E remove()  {
       
       /*** Add code ***/
-
+   return data[0];
    }
    public E peek()  {
 
       /*** Add code ***/
-
+   return data[0];
    }
 
    public boolean is_empty()  {
 
       /*** Add code ***/
-
+   return true;
    }
 
    public boolean is_full()  {
 
       /*** Add code ***/
-
+   return true;
    }
 
 }
