@@ -20,19 +20,34 @@ public class CS401StackArrayImpl<E> implements CS401StackInterface<E>
    public void push(E e)
    {
       /** Add code here **/
+      if(num_elements>=max_elements){
+      E[] newArray = (E[]) elements[max_elements*2];
+         for (int i = 0; i <elements.length ; i++) {
+            newArray[i] = elements[i];
+         }
+         elements = newArray;
+         elements[num_elements] = e;
+         num_elements++;
+      }else{
+         elements[num_elements] = e;
+         num_elements++;
+      }
       return;
    }
 
    public E pop()
    {
       /** Add code here **/
-      return elements[0];
+      E popElement;
+      popElement = elements[num_elements-1];
+      num_elements--;
+      return popElement;
    }
 
    public int size()
    {
       /** Add code here **/
-   return 0;
+   return num_elements;
    }
 
 } /* CS401StackArrayImpl<E> */
