@@ -35,6 +35,11 @@ public class CS401StackLinkedListImpl<E> implements CS401StackInterface<E>
       return ne.element;
 
    }
+   public E peek(){
+      LinkEntry<E> ne = new LinkEntry<>();
+      ne = head;
+      return ne.element;
+   }
 
    public int size()
    {

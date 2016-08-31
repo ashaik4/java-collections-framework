@@ -40,8 +40,15 @@ public class CS401StackArrayImpl<E> implements CS401StackInterface<E>
       /** Add code here **/
       E popElement;
       popElement = elements[num_elements-1];
+      elements[num_elements-1] = null;
       num_elements--;
       return popElement;
+   }
+   public E peek()
+   {
+      E peekElement;
+      peekElement = elements[num_elements-1];
+      return  peekElement;
    }
 
    public int size()

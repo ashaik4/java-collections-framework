@@ -21,4 +21,6 @@ public interface CS401StackInterface<E>
     *         data structure.
     */
    public int size();
+
+   public E peek();
 }
