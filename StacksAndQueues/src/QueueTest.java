@@ -16,6 +16,22 @@ public class QueueTest {
         System.out.println("removing: "+queue.remove());
         System.out.println(queue.remove());
 
+        CS401QueueArrayFloatingImpl<String> floating_queue = new CS401QueueArrayFloatingImpl<>(5);
+
+        floating_queue.add("Arshad");
+        floating_queue.add("Anas");
+        floating_queue.add("Ammar");
+        floating_queue.add("Sami");
+        floating_queue.add("Zeeshan");
+        System.out.println("********************************************");
+
+        System.out.println(floating_queue.remove().toString());
+        System.out.println(floating_queue.remove());
+        System.out.println(floating_queue.remove());
+        System.out.println(floating_queue.remove());
+        System.out.println(floating_queue.remove());
+    //    System.out.println(floating_queue.remove());
+
 
 
 
