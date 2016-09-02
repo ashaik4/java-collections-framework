@@ -33,8 +33,17 @@ public class QueueTest {
     //    System.out.println(floating_queue.remove());
 
 
+        CS401QueueLinkedListImpl<String> queue_linked_list = new CS401QueueLinkedListImpl<>();
+        queue_linked_list.add("Machine Learning");
+        queue_linked_list.add("Data Structures");
+        queue_linked_list.add("Algorithms");
+        queue_linked_list.add("ITM Frameworks");
 
-
+        System.out.println("Removing element: "+queue_linked_list.remove());
+        System.out.println("Removing element: "+queue_linked_list.remove());
+        System.out.println("Removing element: "+queue_linked_list.remove());
+        System.out.println("Removing element: "+queue_linked_list.remove());
+        System.out.println("Removing element: "+queue_linked_list.remove());
     }
 
 
