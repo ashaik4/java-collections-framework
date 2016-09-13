@@ -127,16 +127,10 @@ public class CS401BinaryTree<E>  {
           root.left.left = node;
        }
        else if (index == 4)  {
-          /*
-           * ADD YOUR CODE HERE 
-           * ADD YOUR CODE HERE 
-           */
+         root.left.right = node;
        }
        else if (index == 5)  {
-          /*
-           * ADD YOUR CODE HERE 
-           * ADD YOUR CODE HERE 
-           */
+         root.right.left = node;
        }
 
        index++;
