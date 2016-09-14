@@ -58,13 +58,11 @@ public class CS401BinaryTree<E>  {
    /*
     * Complete the following method to do an inorder traversal. */
    private void inorder_p(TreeNode<E> t)  {
-      /*
-       * ADD YOUR CODE HERE 
-       * ADD YOUR CODE HERE 
-       *
-       * Note: t.get_left() gives you the entire left subtree and
-       *       t.get_right() gives you the right tree.
-       */
+      if (t!=null){
+         inorder_p(t.get_left());
+         System.out.println(t.info);
+         inorder_p(t.get_right());
+      }
       return;
    }
 
