@@ -17,6 +17,10 @@
  *   preorder_p()  (Called from public method preorder())
  */
 
+import com.sun.org.apache.xalan.internal.xsltc.compiler.util.StringStack;
+import com.sun.xml.internal.messaging.saaj.util.FinalArrayList;
+
+import java.util.ArrayList;
 import java.util.Stack;
 
 public class CS401BinaryTree<E>  {
@@ -35,7 +39,7 @@ public class CS401BinaryTree<E>  {
    /* ------------------------------------------------------------------
     * Recursively calculates the size of the tree; i.e., the number of
     * elements in the binary tree. */
-   public int size() { return size_p(root); }
+   public int size() { return size_iterative_p(root); }
 
    /*
     * Complete the following method to calculate size. */
@@ -45,11 +49,38 @@ public class CS401BinaryTree<E>  {
          return 0;
       }
       else{
-         num_nodes= (1 + size_p(t.get_left())+size_p(t.get_right()));
       }
-
-
       return num_nodes;
+   }
+   private int size_iterative_p(TreeNode<E> t){
+      int num_elements = 1;
+      Stack<TreeNode<E>> stack = new Stack<TreeNode<E>>();
+
+      TreeNode<E> node = t;
+      while(t!=null){
+         num_elements++;
+         stack.push(t);
+         t = t.get_left();
+      }
+      while (stack.size()>0){
+         node = stack.pop();
+
+         System.out.print(node.info+" ");
+         if (node.right !=null){
+            node = node.get_right();
+            num_elements++;
+
+            while (node !=null){
+               stack.push(node);
+
+               node = node.get_left();
+
+            }
+         }
+      }
+      System.out.println("The arraylist: ");
+
+      return num_elements;
    }
 
    /* -------------------------------------------------------------------
@@ -105,6 +136,31 @@ public class CS401BinaryTree<E>  {
     * Adds a node to the binary tree.  Nodes are added from the left.
     * Thus, each level in the tree is fleshed out before a new level 
     * is started. */
+   public void inorder_iterative(){
+      inorder_iterative_p(root);
+   }
+   private void inorder_iterative_p(TreeNode<E> t){
+      Stack<TreeNode<E>> tree_stack = new Stack<TreeNode<E>>();
+      TreeNode<E> node = t;
+      int size = 0;
+      while(node!=null){
+         tree_stack.push(node);
+         node = node.get_left();
+      }
+      while(tree_stack.size()>0){
+         node = tree_stack.pop();
+         System.out.print(node.info+" ");
+         size++;
+         if (node.right!=null){
+            node = node.right;
+            while (node!=null){
+               tree_stack.push(node);
+               node = node.left;
+            }
+         }
+      }
+
+   }
    public void add(E info)
    {
       /*
@@ -138,6 +194,9 @@ public class CS401BinaryTree<E>  {
        else if (index == 5)  {
          root.right.left = node;
        }
+       else if(index == 6){
+          root.right.right = node;
+       }
 
        index++;
    }
@@ -166,22 +225,23 @@ public class CS401BinaryTree<E>  {
       bt.add(60);  
       bt.add(9);   
       bt.add(8);   
-      bt.add(15); 
+      bt.add(15);
+      bt.add(30);
       /*
        * The above tree will look like:
        *                            32 
        *                           /  \
        *                          /    \
        *                        40      60
-       *                       / \      /
-       *                      /   \    /
-       *                     9    8   15
+       *                       / \      /\
+       *                      /   \    /  \
+       *                     9    8   15   30
        */
       System.out.println("The tree has " + bt.size() + " nodes.");
       //bt.preorder();
-      bt.inorder();
+      //bt.inorder();
       //bt.postorder();
-     // bt.inorder_iterative();
+      bt.inorder_iterative();
 
       return;
    }
