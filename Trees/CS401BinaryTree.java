@@ -17,6 +17,8 @@
  *   preorder_p()  (Called from public method preorder())
  */
 
+import java.util.Stack;
+
 public class CS401BinaryTree<E>  {
 
    private int index;        /* This is the index of the next node to insert
@@ -66,6 +68,7 @@ public class CS401BinaryTree<E>  {
       return;
    }
 
+
    /* --------------------------------------------------------------------
     * Recursively does an preorder traversal of the tree
     */
@@ -74,10 +77,11 @@ public class CS401BinaryTree<E>  {
    /*
     * Complete the following method to do an preorder traversal. */
    private void preorder_p(TreeNode<E> t)  {
-      /*
-       * ADD YOUR CODE HERE 
-       * ADD YOUR CODE HERE 
-       */
+      if (t!=null){
+         System.out.println(t.info);
+         preorder_p(t.get_left());
+         preorder_p(t.get_right());
+      }
       return;
    }
 
@@ -89,10 +93,11 @@ public class CS401BinaryTree<E>  {
    /*
     * Complete the following method to do an postorder traversal. */
    private void postorder_p(TreeNode<E> t)  {
-      /*
-       * ADD YOUR CODE HERE 
-       * ADD YOUR CODE HERE 
-       */
+      if (t!=null){
+         postorder_p(t.get_left());
+         postorder_p(t.get_right());
+         System.out.println(t.info);
+      }
       return;
    }
 
@@ -173,99 +178,11 @@ public class CS401BinaryTree<E>  {
        *                     9    8   15
        */
       System.out.println("The tree has " + bt.size() + " nodes.");
-      bt.preorder();
+      //bt.preorder();
       bt.inorder();
-      bt.postorder();
+      //bt.postorder();
+     // bt.inorder_iterative();
 
       return;
    }
 }
-/*
-
-public class CS401BinaryTree<E>  {
-
-   private int index;
- This is the index of the next node to insert
-                                in the tree.
-
-private TreeNode<E> root;
- The absolute root of the tree.
-
-
- * Default constructor.
-
-protected static class TreeNode<E>  {
-   private TreeNode<E> left,
-           right;
-   private E info;
-
-   public TreeNode(E info) { left = right = null; this.info = info; }
-   public TreeNode<E> get_left()  { return left; }
-   public TreeNode<E> get_right() { return right;}
-}
-   public CS401BinaryTree()  {
-      index = 0;
-      root = null;
-   }
-   public int size(){
-      return size_p(root);
-   }
-   private int size_p(TreeNode<E> t){
-      int num_nodes = 0;
-      if(t == null){
-         return 0;
-      }
-      else{
-         return num_nodes = (1 + size_p(t.get_left())+ size_p(t.get_right()));
-      }
-   }
-
-   public void add(E info)
-   {
-       * Additions are done from the leftmost.  Thus, the first node
-       * (index 0) is the root; the second node (index 1) is the left
-       * child of the root, the third node (index 2) is the right child
-       * of the root.  The fourth node (index 3) will be the left child
-       * of the node at index 1.  And so on.
-       *
-       * To give you some context, the node having index 0 occurs at
-       * level 0, the nodes having indexes 1 and 2 occur at level 1,
-       * the nodes having index 3,4,5 occur at level 2.
-
-
-      TreeNode<E> node = new TreeNode<E>(info);
-
-      if (index == 0)  {
-         root = node;
-      }
-      else if (index == 1)  {
-         root.left = node;
-      }
-      else if (index == 2)  {
-         root.right = node;
-      }
-      else if (index == 3)  {
-         root.left.left = node;
-      }
-      else if (index == 4)  {
-         root.left.right = node;
-      }
-      else if (index == 5)  {
-         root.right.left = node;
-      }
-
-      index++;
-   }
-
-   public static void main(String[] args){
-      CS401BinaryTree<Integer> bt = new CS401BinaryTree<Integer>();
-      bt.add(32);
-      bt.add(40);
-      bt.add(60);
-      bt.add(9);
-      bt.add(8);
-      bt.add(15);
-      System.out.println("The tree has " + bt.size() + " nodes.");
-   }
-}
-*/
