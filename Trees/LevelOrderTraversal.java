@@ -50,6 +50,8 @@ public class LevelOrderTraversal<E> {
         }
         else if(index == 6){
             root.right.right = node;
+        }else if(index == 7){
+            root.right.right.right = node;
         }
 
         index++;
@@ -65,6 +67,25 @@ public class LevelOrderTraversal<E> {
     }
     public void levelOrderTraversap_p(){
         levelOrderTraversal(root);
+    }
+    public void heightFinder(){
+        int h = 0;
+        h = height(root);
+        System.out.println("height is:"+h);
+    }
+    public int height(TreeNode<E> t){
+        int hl, hr,h = 0;
+
+        if(t == null){
+            return -1;
+        }
+        else{
+            hl = height(t.left);
+            hr = height(t.right);
+            int maxValue = (hr>hl)?hr: hl;
+            h = 1 + maxValue;
+            return h;
+        }
     }
     public void levelOrderTraversal(TreeNode<E> t){
         if (t == null) return;
@@ -82,9 +103,8 @@ public class LevelOrderTraversal<E> {
                 }
             }
         }
-
-
     }
+
 
     public static void main(String[] args)  {
         LevelOrderTraversal<Integer> bt = new LevelOrderTraversal<Integer>();
@@ -96,6 +116,7 @@ public class LevelOrderTraversal<E> {
         bt.add(8);
         bt.add(15);
         bt.add(30);
+        bt.add(7);
       /*
        * The above tree will look like:
        *                            32
@@ -108,5 +129,6 @@ public class LevelOrderTraversal<E> {
        */
 
     bt.levelOrderTraversap_p();
+        bt.heightFinder();
     }
 }
