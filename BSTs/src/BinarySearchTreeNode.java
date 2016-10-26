@@ -82,6 +82,12 @@ public class BinarySearchTreeNode<E> {
             }
         }
     }
+
+    /**
+     *
+     * @param root node
+     * @returns the maximum element in the tree iteratively.
+     */
  public BinarySearchTreeNode<E> findMaxIteratively(BinarySearchTreeNode<E> root){
      BinarySearchTreeNode<E> temp = null;
      if (root == null){
@@ -95,4 +101,35 @@ public class BinarySearchTreeNode<E> {
      }
      return temp;
  }
+    /**
+     *
+     * @param root
+     * @returns the minimum element in the tree iteratively
+     */
+    public BinarySearchTreeNode<E> findMinIteratively(BinarySearchTreeNode<E> root){
+
+        if (root == null)
+            return null;
+        else{
+            while(root.getLeft()!=null){
+                root = root.getLeft();
+            }
+        }
+        return root;
+    }
+
+    public int insertElement(BinarySearchTreeNode<E> root, int data){
+        if(root == null){
+            root = new BinarySearchTreeNode<E>();
+            root.setData(data);
+        }else{
+            if(data<root.getData()){
+                root.setData(insertElement(root.getLeft(),data));
+            }
+            else if(data>root.getData()){
+                root.setData(insertElement(root.getRight(),data));
+            }
+        }
+    return root.getData();
+    }
 }
